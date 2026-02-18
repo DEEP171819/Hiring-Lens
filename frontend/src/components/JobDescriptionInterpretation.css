@@ -1,0 +1,217 @@
+.jd-interpretation {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+  margin-bottom: 24px;
+  transition: box-shadow 0.3s ease;
+}
+
+.jd-interpretation:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.jd-header {
+  margin-bottom: 24px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 16px;
+}
+
+.jd-header h3 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 700;
+}
+
+.jd-subheader {
+  margin: 0;
+  font-size: 12px;
+  color: #999;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.jd-section {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background-color: #fafbfc;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.jd-section:hover {
+  background-color: #f0f3f7;
+}
+
+.jd-section-last {
+  margin-bottom: 0;
+}
+
+.section-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-content {
+  flex: 1;
+}
+
+.section-title {
+  margin: 0 0 8px 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.role-summary {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip-core {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #e7f5ff;
+  color: #0066cc;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #b3deff;
+  transition: all 0.2s;
+}
+
+.skill-chip-core:hover {
+  background-color: #d0ebff;
+  border-color: #85c0ff;
+}
+
+.skill-chip-secondary {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #f0f0f0;
+  color: #999;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  font-style: italic;
+  transition: all 0.2s;
+}
+
+.skill-chip-secondary:hover {
+  background-color: #e8e8e8;
+  color: #666;
+}
+
+.experience-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.experience-entry-level {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+}
+
+.experience-intermediate {
+  background-color: #cfe2ff;
+  color: #0066cc;
+  border: 1px solid #084298;
+}
+
+.experience-advanced {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border: 1px solid #31a24c;
+}
+
+.matching-strategy {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.jd-empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin: 0 0 12px 0;
+  opacity: 0.5;
+}
+
+.empty-text {
+  margin: 0;
+  font-size: 14px;
+  color: #999;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .jd-interpretation {
+    padding: 16px;
+  }
+
+  .jd-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .jd-header h3 {
+    font-size: 16px;
+  }
+
+  .jd-section {
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 10px;
+  }
+
+  .section-icon {
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .skill-chip-core,
+  .skill-chip-secondary {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .experience-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
