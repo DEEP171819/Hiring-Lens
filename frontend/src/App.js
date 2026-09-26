@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import './App.css';
 import ResumePicker from './components/ResumePicker';
@@ -28,7 +29,7 @@ function App() {
         formData.append('files', file);
       });
 
-      const response = await fetch("http://127.0.0.1:8000/health", {
+      const response = await fetch(`${API_BASE_URL}/health`, {
         method: 'GET',
         mode: 'cors',
       });
@@ -37,14 +38,13 @@ function App() {
         throw new Error('Failed to connect to server');
       }
 
-      // Now upload
-      const uploadResponse = await fetch("http://127.0.0.1:8000/upload-resumes", {
+      const uploadResponse = await fetch(`${API_BASE_URL}/upload-resumes`, {
         method: 'POST',
         mode: 'cors',
         body: formData,
       });
 
-      if (!response.ok) {
+      if (!uploadResponse.ok) {
         throw new Error('Failed to upload resumes');
       }
 
@@ -72,7 +72,7 @@ function App() {
       setLoading(true);
       setError('');
 
-      const response = await fetch("http://127.0.0.1:8000/rank", {
+      const response = await fetch(`${API_BASE_URL}/rank`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
