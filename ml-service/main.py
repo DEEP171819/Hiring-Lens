@@ -167,7 +167,7 @@ def calculate_similarity(resumes: List[str], job_description: str):
         )
 
         tfidf_matrix = vectorizer.fit_transform(documents)
-
+# 🔹 Compute cosine similarity between job description and each resume, SIMILARITY IS A FLOAT ARRAY
         similarities = cosine_similarity(
             tfidf_matrix[0:1],
             tfidf_matrix[1:]
@@ -342,6 +342,7 @@ async def rank_resumes(request: RankRequest):
             skill_cov = skill_coverage_score(request.job_description, resume.text)
             keyword_overlap = len(matched_keywords) / max(len(job_keywords), 1)
 
+#versatility
             final_score = (
                 0.55 * semantic +
                 0.30 * skill_cov +
