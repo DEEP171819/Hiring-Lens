@@ -52,14 +52,27 @@ app.post('/upload-resumes', upload.array('resumes', 50), async (req, res) => {
       return res.status(400).json({ error: 'No files uploaded' });
     }
 
-    const filePaths = req.files.map(file => path.join(uploadDir, file.filename));
-    
     console.log(`Received ${req.files.length} resume files`);
-    
-    // Send to ML service for processing
-    const response = await axios.post(`${ML_SERVICE_URL}/process-resumes`, {
-      file_paths: filePaths
-    });
+
+    const FormData = require('form-data');
+    const form = new FormData();
+
+    for (const file of req.files) {
+      form.append('files', fs.createReadStream(file.path), {
+        filename: file.originalname,
+        contentType: file.mimetype
+      });
+    }
+
+    const response = await axios.post(
+      `${ML_SERVICE_URL}/upload-resumes`,
+      form,
+      {
+        headers: form.getHeaders(),
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity
+      }
+    );
 
     res.json({
       success: true,
@@ -67,11 +80,16 @@ app.post('/upload-resumes', upload.array('resumes', 50), async (req, res) => {
       count: req.files.length,
       resumes: response.data.resumes || []
     });
+
   } catch (error) {
-    console.error('Upload error:', error.message);
-    res.status(500).json({ 
-      error: 'Failed to process resumes', 
-      details: error.message 
+    console.error(
+      'Upload error:',
+      error.response?.data || error.message
+    );
+
+    res.status(500).json({
+      error: 'Failed to process resumes',
+      details: error.response?.data || error.message
     });
   }
 });
