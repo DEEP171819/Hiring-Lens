@@ -13,8 +13,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:8000';
-
+const API_BASE_URL = process.env.REACT_APP_API_URL || 
+    'http://hiringlens-backend.localhost';
   const handleResumesUpload = async (files) => {
     try {
       setLoading(true);
