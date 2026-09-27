@@ -100,7 +100,8 @@ app.post('/upload-resumes', upload.array('resumes', 50), async (req, res) => {
  */
 app.post('/rank', async (req, res) => {
   try {
-    const { resumes, jobDescription } = req.body;
+    const { resumes, job_description } = req.body;
+    const jobDescription = job_description;
 
     if (!resumes || !jobDescription) {
       return res.status(400).json({ 
