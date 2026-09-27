@@ -26,7 +26,7 @@ const API_BASE_URL = process.env.REACT_APP_API_URL ||
 
       const formData = new FormData();
       files.forEach((file) => {
-        formData.append('files', file);
+        formData.append('resumes', file);
       });
 
       const response = await fetch(`${API_BASE_URL}/health`, {
